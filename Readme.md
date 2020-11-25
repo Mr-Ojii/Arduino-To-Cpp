@@ -42,6 +42,7 @@ gcc‚È‚Ç‚ÅƒRƒ“ƒpƒCƒ‹‚·‚éê‡AŠg’£q‚ğ•ÏX‚µ‚È‚¢‚ÆƒRƒ“ƒpƒCƒ‹‚Å‚«‚È‚¢‰Â”\«‚ª‚ ‚è‚
   + delayMicroseconds‚ÌÀ‘•
   + Serial.begin‚Ì‰¼À‘•
   + Serial.print‚ÌÀ‘•
-  + Serial.println‚ÌÀ‘•
+  + Serial.println‚ÌÀ‘•  
+  + ƒ‰ƒCƒZƒ“ƒX‚Ì’Ç‰Á
 
 * 2020/11/24 »ìŠJn
