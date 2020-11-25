@@ -19,6 +19,10 @@
 #define HIGH 1
 #define LOW 0
 
+//boolean
+#define true 1
+#define false 0
+
 #pragma endregion
 
 void setup();
@@ -38,12 +42,12 @@ int main()
 //functions
 void pinMode(int pin, int mode)
 {
-	std::cout << "pinMode(" << pin << "," << (mode == 0 ? "INPUT" : "OUTPUT") << ")" << std::endl;
+	//何もしない
 }
 
 void digitalWrite(int pin, int value)
 {
-	std::cout << "digitalWrite(" << pin << "," << (value == 0 ? "LOW" : "HIGH") << ")" << std::endl;
+	//何もしない
 }
 
 int digitalRead(int pin)
@@ -54,7 +58,7 @@ int digitalRead(int pin)
 
 void analogWrite(int pin, int value)
 {
-	std::cout << "analogWrite(" << pin << "," << value << ")" << std::endl;
+	//何もしない
 }
 
 int analogRead(int pin)
@@ -79,12 +83,32 @@ void delayMicroseconds(int us)
 	nanosleep(&ts, NULL);
 }
 
-class SerialClass
+class
 {
 public:
-	void begin(int bps) 
+	void begin(int bps)
 	{
-		std::cout << "Serial.begin(" << bps << ")" << std::endl;
+		//何もしない
+	}
+	void end()
+	{
+		//何もしない
+	}
+	int available()
+	{
+		return 0;
+	}
+	unsigned char read()
+	{
+		return ' ';
+	}
+	unsigned char peek()
+	{
+		return ' ';
+	}
+	void flush() 
+	{
+		//何もしない
 	}
 	void println(auto moji) 
 	{
@@ -93,6 +117,10 @@ public:
 	void print(auto moji) 
 	{
 		std::cout << moji << std::endl;
+	}
+	int write() 
+	{
+		return 0;
 	}
 }Serial;
 

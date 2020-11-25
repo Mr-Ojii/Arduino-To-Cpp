@@ -6,33 +6,39 @@ ArduinoŒ¾Œê‚Ìƒ\[ƒXƒR[ƒh‚ğC++‚Æ‚İ‚È‚µ‚ÄGCC‚È‚Ç‚ÅƒRƒ“ƒpƒCƒ‹‚Å‚«‚é‚æ‚¤‚É‚·‚é‚±‚Æ‚
 (Arduino‚ªèŒ³‚É‚È‚¢ó‘Ô‚ÅAArduinoŒ¾Œê‚ğ‘‚©‚È‚¯‚ê‚Î‚¢‚¯‚È‚­‚È‚Á‚½‚Ì‚Å)
 
 ### g—p•û–@
-**ƒtƒ@ƒCƒ‹‚É‚±‚Ì``ArduinoToCpp.hpp``‚ğinclude‚·‚é‚¾‚¯**
+**ƒtƒ@ƒCƒ‹‚É‚±‚ÌƒŠƒ|ƒWƒgƒŠ“à‚Ì``ArduinoToCpp.hpp``‚ğinclude‚·‚é‚¾‚¯**
 
 include‚µ‚½ê‡‚Å‚àAArduino IDE‚ÅƒRƒ“ƒpƒCƒ‹‚Å‚«‚é‚Í‚¸‚Å‚·B  
 gcc‚È‚Ç‚ÅƒRƒ“ƒpƒCƒ‹‚·‚éê‡AŠg’£q‚ğ•ÏX‚µ‚È‚¢‚ÆƒRƒ“ƒpƒCƒ‹‚Å‚«‚È‚¢‰Â”\«‚ª‚ ‚è‚Ü‚·B
 
 ### ’ˆÓ–€
-* –ß‚è’l‚ªArduino‚ÌŒ^‚ÆˆÙ‚È‚é‰Â”\«‚ª‚ ‚è‚Ü‚·B
+* –ß‚è’l‚ªArduino‚Ì•W€ŠÖ”‚ÆˆÙ‚È‚é‰Â”\«‚ª‚ ‚è‚Ü‚·B
 
 ### À‘•ó‹µ
 
 
 |      ŠÖ”–¼      |à–¾                                  |
 |:----------------:|:-------------------------------------|
-|      pinMode     |‘ã‘Ö‚Æ‚µ‚ÄA•W€o—Í‚ğ‚µ‚Ü‚·          |
-|   digitalWrite   |‘ã‘Ö‚Æ‚µ‚ÄA•W€o—Í‚ğ‚µ‚Ü‚·          |
+|      pinMode     |‰½‚à‚µ‚Ü‚¹‚ñ                          |
+|   digitalWrite   |‰½‚à‚µ‚Ü‚¹‚ñ                          |
 |    digitalRead   |HIGH‚ğ•Ô‚µ‚Ü‚·                        |
-|    analogWrite   |‘ã‘Ö‚Æ‚µ‚ÄA•W€o—Í‚ğ‚µ‚Ü‚·          |
+|    analogWrite   |‰½‚à‚µ‚Ü‚¹‚ñ                          |
 |    analogRead    |1023‚ğ•Ô‚µ‚Ü‚·                        |
 |       delay      |ƒvƒƒOƒ‰ƒ€‚ğw’èƒ~ƒŠ•b‚¾‚¯~‚ß‚Ü‚·    |
 |delayMicroseconds |ƒvƒƒOƒ‰ƒ€‚ğw’èƒ}ƒCƒNƒ•b‚¾‚¯~‚ß‚Ü‚·|
-|   Serial.begin   |‘ã‘Ö‚Æ‚µ‚ÄA•W€o—Í‚ğ‚µ‚Ü‚·          |
+|   Serial.begin   |‰½‚à‚µ‚Ü‚¹‚ñ                          |
+|    Serial.end    |‰½‚à‚µ‚Ü‚¹‚ñ                          |
+| Serial.available |0‚ğ•Ô‚µ‚Ü‚·                           |
+|    Serial.read   |”¼ŠpƒXƒy[ƒX‚ğ•Ô‚µ‚Ü‚·                |
+|    Serial.peek   |”¼ŠpƒXƒy[ƒX‚ğ•Ô‚µ‚Ü‚·                |
+|   Serial.flush   |‰½‚à‚µ‚Ü‚¹‚ñ                          |
 |   Serial.print   |w’è‚³‚ê‚½‚à‚Ì‚ğ•W€o—Í‚µ‚Ü‚·        |
 |  Serial.println  |w’è‚³‚ê‚½‚à‚Ì‚ğ•W€o—Í‚µA‰üs‚µ‚Ü‚·|
+|   Serial.write   |0‚ğ•Ô‚µ‚Ü‚·                           |
 
 
 ### Changelog
-* 2020/11/25 ‘æˆê”Å  
+* 2020/11/25 À‘•  
   + pinMode‚Ì‰¼À‘•
   + digitalWrite‚Ì‰¼À‘•
   + digitalRead‚Ì‰¼À‘•
@@ -41,8 +47,14 @@ gcc‚È‚Ç‚ÅƒRƒ“ƒpƒCƒ‹‚·‚éê‡AŠg’£q‚ğ•ÏX‚µ‚È‚¢‚ÆƒRƒ“ƒpƒCƒ‹‚Å‚«‚È‚¢‰Â”\«‚ª‚ ‚è‚
   + delay‚ÌÀ‘•
   + delayMicroseconds‚ÌÀ‘•
   + Serial.begin‚Ì‰¼À‘•
+  + Serial.end‚Ì‰¼À‘•
+  + Serial.available‚Ì‰¼À‘•
+  + Serial.read‚Ì‰¼À‘•
+  + Serial.peek‚Ì‰¼À‘•
+  + Serial.flush‚Ì‰¼À‘•
   + Serial.print‚ÌÀ‘•
-  + Serial.println‚ÌÀ‘•  
+  + Serial.println‚ÌÀ‘•
+  + Serial.write‚Ì‰¼À‘•  
   + ƒ‰ƒCƒZƒ“ƒX‚Ì’Ç‰Á
 
 * 2020/11/24 »ìŠJn
