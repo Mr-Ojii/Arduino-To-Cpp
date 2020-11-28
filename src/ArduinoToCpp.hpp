@@ -48,6 +48,11 @@ int main()
 	while (1)
 	{
 		loop();
+		for (int i = 0; i < 13; i++) 
+		{
+			printf("%s ", pinmode[i] ? OUTPUT : INPUT);
+			printf("%s ", pinstate[i] ? HIGH : LOW);
+		}
 	}
 
 	return 0;
@@ -59,7 +64,7 @@ int main()
 #pragma region デジタル入出力関数
 void pinMode(int pin, int mode)
 {
-	if (pin <= 0 && pin <= 13) 
+	if (pin >= 0 && pin <= 13) 
 	{
 		pinmode[pin] = mode;
 	}
@@ -190,11 +195,11 @@ public:
 	}
 	void println(auto moji)
 	{
-		std::cout << moji;
+		std::cout << moji << std::endl;
 	}
 	void print(auto moji)
 	{
-		std::cout << moji << std::endl;
+		std::cout << moji;
 	}
 	int write()
 	{
