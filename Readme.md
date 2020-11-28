@@ -12,6 +12,7 @@ include‚µ‚½ê‡‚Å‚àAArduino IDE‚ÅƒRƒ“ƒpƒCƒ‹‚Å‚«‚é‚Í‚¸‚Å‚·B
 gcc‚È‚Ç‚ÅƒRƒ“ƒpƒCƒ‹‚·‚éê‡AŠg’£q‚ğ•ÏX‚µ‚È‚¢‚ÆƒRƒ“ƒpƒCƒ‹‚Å‚«‚È‚¢‰Â”\«‚ª‚ ‚è‚Ü‚·B
 
 ### ’ˆÓ–€
+* ‚±‚ÌƒvƒƒOƒ‰ƒ€‚ğinclude‚µAPCã‚Å“®ì‚µ‚½ƒvƒƒOƒ‰ƒ€‚ªArduinoã‚Å‚à³í‚É“®ì‚·‚é‚Æ•ÛØ‚·‚é‚à‚Ì‚Å‚Í‚ ‚è‚Ü‚¹‚ñB
 * –ß‚è’lEˆø”‚ªArduino‚Ì•W€ŠÖ”‚ÆˆÙ‚È‚é‰Â”\«‚ª‚ ‚è‚Ü‚·B
 * “®ìŠm”F‚ğs‚Á‚Ä‚¢‚È‚¢ŠÖ”‚ª‚ ‚è‚Ü‚·B
 * ìÒ(Mr-Ojii)‚Í‚±‚ÌƒvƒƒOƒ‰ƒ€‚ğ—˜—p‚µ”­¶‚µ‚½‘¹ŠQE–â‘è‚É‚Â‚¢‚ÄA‘S‚­‚ÌÓ”C‚ğ•‰‚í‚È‚¢‚à‚Ì‚Æ‚µ‚Ü‚·B
@@ -19,33 +20,42 @@ gcc‚È‚Ç‚ÅƒRƒ“ƒpƒCƒ‹‚·‚éê‡AŠg’£q‚ğ•ÏX‚µ‚È‚¢‚ÆƒRƒ“ƒpƒCƒ‹‚Å‚«‚È‚¢‰Â”\«‚ª‚ ‚è‚
 ### À‘•ó‹µ
 
 
-|        ŠÖ”–¼        |à–¾                                            |
-|:--------------------:|:-----------------------------------------------|
-|        pinMode       |‰½‚à‚µ‚Ü‚¹‚ñ                                    |
-|     digitalWrite     |‰½‚à‚µ‚Ü‚¹‚ñ                                    |
-|      digitalRead     |HIGH‚ğ•Ô‚µ‚Ü‚·                                  |
-|      analogWrite     |‰½‚à‚µ‚Ü‚¹‚ñ                                    |
-|      analogRead      |1023‚ğ•Ô‚µ‚Ü‚·                                  |
-|    analogReference   |‰½‚à‚µ‚Ü‚¹‚ñ                                    |
-| analogReadResolutions|‰½‚à‚µ‚Ü‚¹‚ñ                                    |
-|analogWriteResolutions|‰½‚à‚µ‚Ü‚¹‚ñ                                    |
-|        millis        |ƒvƒƒOƒ‰ƒ€‚ªŠJn‚³‚ê‚Ä‚©‚ç‚Ìƒ~ƒŠ•b‚ğ•Ô‚µ‚Ü‚·    |
-|        micros        |ƒvƒƒOƒ‰ƒ€‚ªŠJn‚³‚ê‚Ä‚©‚ç‚Ìƒ}ƒCƒNƒ•b‚ğ•Ô‚µ‚Ü‚·|
-|         delay        |ƒvƒƒOƒ‰ƒ€‚ğw’èƒ~ƒŠ•b‚¾‚¯~‚ß‚Ü‚·              |
-|  delayMicroseconds   |ƒvƒƒOƒ‰ƒ€‚ğw’èƒ}ƒCƒNƒ•b‚¾‚¯~‚ß‚Ü‚·          |
-|     Serial.begin     |‰½‚à‚µ‚Ü‚¹‚ñ                                    |
-|      Serial.end      |‰½‚à‚µ‚Ü‚¹‚ñ                                    |
-|   Serial.available   |0‚ğ•Ô‚µ‚Ü‚·                                     |
-|      Serial.read     |”¼ŠpƒXƒy[ƒX‚ğ•Ô‚µ‚Ü‚·                          |
-|      Serial.peek     |”¼ŠpƒXƒy[ƒX‚ğ•Ô‚µ‚Ü‚·                          |
-|     Serial.flush     |‰½‚à‚µ‚Ü‚¹‚ñ                                    |
-|     Serial.print     |w’è‚³‚ê‚½‚à‚Ì‚ğ•W€o—Í‚µ‚Ü‚·                  |
-|    Serial.println    |w’è‚³‚ê‚½‚à‚Ì‚ğ•W€o—Í‚µA‰üs‚µ‚Ü‚·          |
-|     Serial.write     |0‚ğ•Ô‚µ‚Ü‚·                                     |
+|        ŠÖ”–¼        |à–¾                                                     |
+|:--------------------:|:--------------------------------------------------------|
+|        pinMode       |pinmode•Ï”‚Éƒ‚[ƒh‚ğŠi”[‚µ‚Ü‚·                          |
+|     digitalWrite     |pinstate•Ï”‚Éˆø”‚Æ‚µ‚Ä“n‚³‚ê‚½ó‘Ô‚ğŠi”[‚µ‚Ü‚·         |
+|      digitalRead     |pinstate•Ï”‚ÉŠi”[‚³‚ê‚Ä‚¢‚éó‘Ô‚ğ•Ô‚µ‚Ü‚·               |
+|      analogWrite     |‰½‚à‚µ‚Ü‚¹‚ñ                                             |
+|      analogRead      |1023‚ğ•Ô‚µ‚Ü‚·                                           |
+|    analogReference   |‰½‚à‚µ‚Ü‚¹‚ñ                                             |
+| analogReadResolutions|‰½‚à‚µ‚Ü‚¹‚ñ                                             |
+|analogWriteResolutions|‰½‚à‚µ‚Ü‚¹‚ñ                                             |
+|      randomSeed      |w’è‚³‚ê‚½’l‚ğ—”¶¬‚ÌƒV[ƒh’l‚ÉƒZƒbƒg‚µ‚Ü‚·           |
+|        random        |w’è‚³‚ê‚½’l‚ÌŠÔ‚Ì—”‚ğ•Ô‚µ‚Ü‚·                         |
+|        millis        |ƒvƒƒOƒ‰ƒ€‚ªŠJn‚³‚ê‚Ä‚©‚ç‚Ìƒ~ƒŠ•b‚ğ•Ô‚µ‚Ü‚·             |
+|        micros        |ƒvƒƒOƒ‰ƒ€‚ªŠJn‚³‚ê‚Ä‚©‚ç‚Ìƒ}ƒCƒNƒ•b‚ğ•Ô‚µ‚Ü‚·         |
+|         delay        |ƒvƒƒOƒ‰ƒ€‚ğw’èƒ~ƒŠ•b‚¾‚¯~‚ß‚Ü‚·                       |
+|  delayMicroseconds   |ƒvƒƒOƒ‰ƒ€‚ğw’èƒ}ƒCƒNƒ•b‚¾‚¯~‚ß‚Ü‚·                   |
+|     Serial.begin     |w’è‚³‚ê‚½ƒf[ƒ^“]‘—ƒXƒs[ƒh‚ğ“à•”•Ï”‚ÉƒZƒbƒg‚µ‚Ü‚·     |
+|      Serial.end      |ƒf[ƒ^“]‘—ƒXƒs[ƒhŠi”[—p•Ï”‚ğ‰Šú‰»‚µ‚Ü‚·               |
+|   Serial.available   |0‚ğ•Ô‚µ‚Ü‚·                                              |
+|      Serial.read     |”¼ŠpƒXƒy[ƒX‚ğ•Ô‚µ‚Ü‚·                                   |
+|      Serial.peek     |”¼ŠpƒXƒy[ƒX‚ğ•Ô‚µ‚Ü‚·                                   |
+|     Serial.flush     |‰½‚à‚µ‚Ü‚¹‚ñ                                             |
+|     Serial.print     |w’è‚³‚ê‚½‚à‚Ì‚ğ•W€o—Í‚µ‚Ü‚·                           |
+|    Serial.println    |w’è‚³‚ê‚½‚à‚Ì‚ğ•W€o—Í‚µA‰üs‚µ‚Ü‚·                   |
+|     Serial.write     |0‚ğ•Ô‚µ‚Ü‚·                                              |
 
 
 ### Changelog
 ‚±‚±‚Å‚Ì **‰¼À‘•** ‚Æ‚ÍA–¼‘O‚Ì‚İÀ‘•‚µA’†g‚ğÀ‘•‚µ‚È‚¢‚±‚Æ‚ğw‚·‚±‚Æ‚Æ‚·‚éB
+
+* 2020/11/28 ŠÖ”‚ÌÀ‘•
+  + pinMode‚ÌÀ‘•
+  + digitalWrite‚ÌÀ‘•
+  + digitalRead‚ÌÀ‘•
+  + randomSeed‚ÌÀ‘•
+  + random‚ÌÀ‘•
 
 * 2020/11/26 ŠÖ”‚ÌÀ‘•
   + analogReference‚Ì‰¼À‘•
@@ -53,6 +63,8 @@ gcc‚È‚Ç‚ÅƒRƒ“ƒpƒCƒ‹‚·‚éê‡AŠg’£q‚ğ•ÏX‚µ‚È‚¢‚ÆƒRƒ“ƒpƒCƒ‹‚Å‚«‚È‚¢‰Â”\«‚ª‚ ‚è‚
   + analogWriteResolutions‚Ì‰¼À‘•
   + millis‚ÌÀ‘•
   + micros‚ÌÀ‘•
+  + Serial.begin‚ÌÀ‘•
+  + Serial.end‚ÌÀ‘•
 
 * 2020/11/25 ŠÖ”‚ÌÀ‘•  
   + pinMode‚Ì‰¼À‘•
@@ -75,4 +87,4 @@ gcc‚È‚Ç‚ÅƒRƒ“ƒpƒCƒ‹‚·‚éê‡AŠg’£q‚ğ•ÏX‚µ‚È‚¢‚ÆƒRƒ“ƒpƒCƒ‹‚Å‚«‚È‚¢‰Â”\«‚ª‚ ‚è‚
   + HIGH/LOW‚Ì’è‹`
   + ƒ‰ƒCƒZƒ“ƒX‚Ì’Ç‰Á
 
-* 2020/11/24 »ìŠJn@\‘z‚ğŒÅ‚ß‚é
+* 2020/11/24 »ìŠJn \‘z‚ğŒÅ‚ß‚é

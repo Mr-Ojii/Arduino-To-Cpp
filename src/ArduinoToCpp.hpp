@@ -4,15 +4,14 @@
 
 #pragma region include
 #include <iostream>
-#include <time.h>
+#include <ctime>
 #include <cmath>
 #include <string>
 #include <chrono>
+#include <random>
+#include <vector>
+#include <algorithm>
 #pragma endregion 
-
-#pragma region valiables
-std::chrono::system_clock::time_point start_time;
-#pragma endregion
 
 #pragma region define
 
@@ -31,12 +30,19 @@ typedef unsigned int word;
 
 #pragma endregion
 
+#pragma region valiables
+std::chrono::system_clock::time_point start_time;
+int pinmode[14] = { OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT };
+int pinstate[14] = { HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH };
+#pragma endregion
+
 #pragma region main
 void setup();
 void loop();
 
 int main()
 {
+	srand(0);
 	start_time = std::chrono::system_clock::now();
 	setup();
 	while (1)
@@ -53,22 +59,33 @@ int main()
 #pragma region デジタル入出力関数
 void pinMode(int pin, int mode)
 {
-	//何もしない
+	if (pin <= 0 && pin <= 13) 
+	{
+		pinmode[pin] = mode;
+	}
 }
 
 void digitalWrite(int pin, int value)
 {
-	//何もしない
+	if (pinmode[pin] == INPUT)
+	{
+		fprintf(stderr, "pinModeがINPUTですが、実行します。");
+	}
+	pinstate[pin] = value;
 }
 
 int digitalRead(int pin)
 {
-	//現状HIGHのみ返す
-	return HIGH;
+	if (pinmode[pin] == OUTPUT) 
+	{
+		fprintf(stderr, "pinModeがOUTPUTですが、実行します。");
+	}
+	return pinstate[pin];
 }
 #pragma endregion
 
 #pragma region アナログ入出力関数
+
 void analogWrite(int pin, int value)
 {
 	//何もしない
@@ -93,6 +110,24 @@ void analogReadResolutions(int bits)
 void analogWriteResolutions(int bits)
 {
 	//何もしない
+}
+
+#pragma endregion
+
+#pragma region 乱数に関する関数
+
+void randomSeed(long seed)
+{
+	srand(seed);
+}
+
+long random(int min, int max) 
+{
+	return rand() % std::abs(max - min) + std::min(min, max);
+}
+long random(int max) 
+{
+	return random(0, max);
 }
 
 #pragma endregion
@@ -125,16 +160,17 @@ void delayMicroseconds(int us)
 }
 #pragma endregion
 
+#pragma region シリアル通信
 class
 {
 public:
-	void begin(int bps)
+	void begin(int speed)
 	{
-		//何もしない
+		Speed = speed;
 	}
 	void end()
 	{
-		//何もしない
+		Speed = 9600;
 	}
 	int available()
 	{
@@ -164,6 +200,8 @@ public:
 	{
 		return 0;
 	}
+private:
+	int Speed = 9600;
 }Serial;
 #pragma endregion
 
