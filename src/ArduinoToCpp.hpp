@@ -48,10 +48,11 @@ int main()
 	while (1)
 	{
 		loop();
+		printf("\r");
 		for (int i = 0; i < 13; i++) 
 		{
-			printf("%s ", pinmode[i] ? OUTPUT : INPUT);
-			printf("%s ", pinstate[i] ? HIGH : LOW);
+			printf("%s ", pinmode[i] == OUTPUT ? "OUTPUT" : "INPUT");
+			printf("%s ", pinstate[i] == HIGH ? "HIGH" : "LOW");
 		}
 	}
 
