@@ -1,8 +1,7 @@
-//参考:http://www.musashinodenpa.com/arduino/ref/
+//ref:http://www.musashinodenpa.com/arduino/ref/
 
 #ifndef OUTPUT
 
-#pragma region include
 #include <iostream>
 #include <ctime>
 #include <cmath>
@@ -11,10 +10,9 @@
 #include <random>
 #include <vector>
 #include <algorithm>
-#pragma endregion 
 
-#pragma region define
 
+//define/typedef
 //PinType
 #define OUTPUT 1
 #define INPUT 0
@@ -28,15 +26,14 @@ typedef bool boolean;
 typedef unsigned char byte;
 typedef unsigned int word;
 
-#pragma endregion
 
-#pragma region valiables
+//variables
 std::chrono::system_clock::time_point start_time;
 int pinmode[14] = { OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT };
 int pinstate[14] = { HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH };
-#pragma endregion
 
-#pragma region main
+
+//main
 void setup();
 void loop();
 
@@ -48,21 +45,20 @@ int main()
 	while (1)
 	{
 		loop();
-		printf("\r");
+		std::cout << "\r";
 		for (int i = 0; i < 13; i++) 
 		{
-			printf("%s ", pinmode[i] == OUTPUT ? "OUTPUT" : "INPUT");
-			printf("%s ", pinstate[i] == HIGH ? "HIGH" : "LOW");
+			std::cout << (pinmode[i] == OUTPUT ? "OUTPUT" : "INPUT") << " ";
+			std::cout << (pinstate[i] == HIGH ? "HIGH" : "LOW") << " ";
 		}
 	}
 
 	return 0;
 }
-#pragma endregion
 
-#pragma region functions
+//functions
 
-#pragma region デジタル入出力関数
+//degital input/output
 void pinMode(int pin, int mode)
 {
 	if (pin >= 0 && pin <= 13) 
@@ -75,7 +71,7 @@ void digitalWrite(int pin, int value)
 {
 	if (pinmode[pin] == INPUT)
 	{
-		fprintf(stderr, "pinModeがINPUTですが、実行します。");
+		std::cerr << "pinModeがINPUTですが、実行します。" << std::endl;
 	}
 	pinstate[pin] = value;
 }
@@ -84,14 +80,12 @@ int digitalRead(int pin)
 {
 	if (pinmode[pin] == OUTPUT) 
 	{
-		fprintf(stderr, "pinModeがOUTPUTですが、実行します。");
+		std::cerr << "pinModeがOUTPUTですが、実行します。" << std::endl;
 	}
 	return pinstate[pin];
 }
-#pragma endregion
 
-#pragma region アナログ入出力関数
-
+//analog input/output
 void analogWrite(int pin, int value)
 {
 	//何もしない
@@ -118,9 +112,8 @@ void analogWriteResolutions(int bits)
 	//何もしない
 }
 
-#pragma endregion
 
-#pragma region 乱数に関する関数
+//random
 
 void randomSeed(long seed)
 {
@@ -136,9 +129,7 @@ long random(int max)
 	return random(0, max);
 }
 
-#pragma endregion
-
-#pragma region 時間に関する関数
+//time
 unsigned long millis() 
 {
 	return (long)std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - start_time).count();
@@ -164,9 +155,9 @@ void delayMicroseconds(int us)
 	ts.tv_nsec = us % 1000000 * 1000;
 	nanosleep(&ts, NULL);
 }
-#pragma endregion
 
-#pragma region シリアル通信
+
+//Serial
 class
 {
 public:
@@ -209,6 +200,5 @@ public:
 private:
 	int Speed = 9600;
 }Serial;
-#pragma endregion
 
 #endif
