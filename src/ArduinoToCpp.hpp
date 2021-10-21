@@ -21,10 +21,15 @@
 #define HIGH 1
 #define LOW 0
 
+#define BIN 2
+#define OCT 8
+#define DEC 10
+#define HEX 16
+
 //typedef
 typedef bool boolean;
 typedef unsigned char byte;
-typedef unsigned int word;
+typedef unsigned short word;
 
 
 //variables
@@ -45,12 +50,6 @@ int main()
 	while (1)
 	{
 		loop();
-		std::cout << "\r";
-		for (int i = 0; i < 13; i++) 
-		{
-			std::cout << (pinmode[i] == OUTPUT ? "OUTPUT" : "INPUT") << " ";
-			std::cout << (pinstate[i] == HIGH ? "HIGH" : "LOW") << " ";
-		}
 	}
 
 	return 0;
@@ -185,13 +184,13 @@ public:
 	{
 		//何もしない
 	}
-	void println(auto moji)
+	void println(auto data)
 	{
-		std::cout << moji << std::endl;
+		std::cout << data << std::endl;
 	}
-	void print(auto moji)
+	void print(auto data)
 	{
-		std::cout << moji;
+		std::cout << data;
 	}
 	int write()
 	{
