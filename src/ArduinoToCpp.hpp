@@ -10,7 +10,7 @@
 #include <random>
 #include <vector>
 #include <algorithm>
-
+#include <bitset>
 
 //define/typedef
 //PinType
@@ -31,12 +31,10 @@ typedef bool boolean;
 typedef unsigned char byte;
 typedef unsigned short word;
 
-
 //variables
 std::chrono::system_clock::time_point start_time;
-int pinmode[14] = { OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT };
-int pinstate[14] = { HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH };
-
+int pinmode[14] = {OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT, OUTPUT};
+int pinstate[14] = {HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH, HIGH};
 
 //main
 void setup();
@@ -60,7 +58,7 @@ int main()
 //degital input/output
 void pinMode(int pin, int mode)
 {
-	if (pin >= 0 && pin <= 13) 
+	if (pin >= 0 && pin <= 13)
 	{
 		pinmode[pin] = mode;
 	}
@@ -77,7 +75,7 @@ void digitalWrite(int pin, int value)
 
 int digitalRead(int pin)
 {
-	if (pinmode[pin] == OUTPUT) 
+	if (pinmode[pin] == OUTPUT)
 	{
 		std::cerr << "pinModeがOUTPUTですが、実行します。" << std::endl;
 	}
@@ -96,7 +94,7 @@ int analogRead(int pin)
 	return 1023;
 }
 
-void analogReference(int type) 
+void analogReference(int type)
 {
 	//何もしない
 }
@@ -111,7 +109,6 @@ void analogWriteResolutions(int bits)
 	//何もしない
 }
 
-
 //random
 
 void randomSeed(long seed)
@@ -119,22 +116,22 @@ void randomSeed(long seed)
 	srand(seed);
 }
 
-long random(int min, int max) 
+long random(int min, int max)
 {
 	return rand() % std::abs(max - min) + std::min(min, max);
 }
-long random(int max) 
+long random(int max)
 {
 	return random(0, max);
 }
 
 //time
-unsigned long millis() 
+unsigned long millis()
 {
 	return (long)std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - start_time).count();
 }
 
-unsigned long micros() 
+unsigned long micros()
 {
 	return (long)std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now() - start_time).count();
 }
@@ -154,7 +151,6 @@ void delayMicroseconds(int us)
 	ts.tv_nsec = us % 1000000 * 1000;
 	nanosleep(&ts, NULL);
 }
-
 
 //Serial
 class
@@ -186,18 +182,51 @@ public:
 	}
 	void println(auto data)
 	{
+		std::cout << std::dec;
 		std::cout << data << std::endl;
 	}
 	void print(auto data)
 	{
+		std::cout << std::dec;
+		std::cout << data;
+	}
+	void println(auto data, int num)
+	{
+		if (num == HEX)
+			std::cout << std::hex;
+		else if (num == OCT)
+			std::cout << std::oct;
+		else if (num == BIN)
+		{
+			std::cout << std::bitset<sizeof(num) * 8>(data) << std::endl;
+			return;
+		}
+		else
+			std::cout << std::dec;
+		std::cout << data << std::endl;
+	}
+	void print(auto data, int num)
+	{
+		if (num == HEX)
+			std::cout << std::hex;
+		else if (num == OCT)
+			std::cout << std::oct;
+		else if (num == BIN)
+		{
+			std::cout << std::bitset<sizeof(num) * 8>(data);
+			return;
+		}
+		else
+			std::cout << std::dec;
 		std::cout << data;
 	}
 	int write()
 	{
 		return 0;
 	}
+
 private:
 	int Speed = 9600;
-}Serial;
+} Serial;
 
 #endif
