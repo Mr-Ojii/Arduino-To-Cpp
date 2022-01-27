@@ -16,6 +16,7 @@
 //PinType
 #define OUTPUT 1
 #define INPUT 0
+#define INPUT_PULLUP 2
 
 //DataType
 #define HIGH 1
